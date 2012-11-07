@@ -53,8 +53,8 @@ my @votecountdist = map { 0 } (0 .. $totalvotes); # for computing likeliest vote
 # over all simulations
 my $totaldemvotes = 0;
 my $totalrepvotes = 0;
-my %demvotes = map { ($_, 0) } @state;		  
-my %repvotes = map { ($_, 0) } @state;		  
+my %totaldemvotes = map { ($_, 0) } @state;		  
+my %totalrepvotes = map { ($_, 0) } @state;		  
 
 # sort states primarily by swinginess and secondarily by descending
 # number of electoral votes
@@ -80,14 +80,14 @@ sub simulate {
 
 			# over all simulation runs
 			$totaldemvotes += $votes;
-			$demvotes{$state} += $votes;
+			$totaldemvotes{$state} += $votes;
 		} else {
 			# this run only
 			$repvotes += $votes;
 
 			# over all simulation runs
 			$totalrepvotes += $votes;
-			$repvotes{$state} += $votes;
+			$totalrepvotes{$state} += $votes;
 		}
 		if ($quick) {
 			# shortcut this simulation run maybe
@@ -106,7 +106,7 @@ sub simulate {
 		$demwins += 1;
 	}
 	if ($run_number) {
-		printf("Run %8d: Dem %3d Rep %3d\n",
+		printf("  run %8d: Dem %3d Rep %3d\n",
 		       $run_number, $demvotes, $repvotes);
 	}
 	$votecountdist[$demvotes] += 1;
@@ -122,23 +122,24 @@ for (my $run = 1; $run <= $runs; $run += 1) {
 }
 
 # Show simulation results.
-print ("Results\n");
-printf ("  Dems are %7.3f%% likely to win.\n", 100 * $demwins / $runs);
-printf ("  Reps are %7.3f%% likely to win.\n", 100 * $repwins / $runs);
-printf ("  A tie is %7.3f%% likely.\n",        100 * $ties / $runs);
+print("Results\n");
+printf("  Dems are %7.3f%% likely to win.\n", 100 * $demwins / $runs);
+printf("  Reps are %7.3f%% likely to win.\n", 100 * $repwins / $runs);
+printf("  A tie is %7.3f%% likely.\n",        100 * $ties / $runs);
 
 exit 0 if $quick;
 
-print ("Average electoral vote counts\n");
-printf ("  %3d Dem %3d Rep\n",
-	$totaldemvotes / $runs, $totalrepvotes / $runs);
+print("Average electoral vote counts\n");
+printf("  %7.3f Dem %7.3f Rep\n",
+       $totaldemvotes / $runs,
+       $totalrepvotes / $runs);
 
 # sort (number of dem electoral votes) scenarios from most to least
 # likely
 my @likelydemtotals = sort { $votecountdist[$b] <=> $votecountdist[$a] }
 	(0 .. $totalvotes);
 
-print ("Top 20 likely scenarios...\n");
+print("Top 20 likely scenarios...\n");
 foreach my $i (0..19) {
 	my $demtotal = $likelydemtotals[$i];
 	printf("  %2d.  Dem %3d Rep %3d %7.3f%%\n",
@@ -149,8 +150,8 @@ foreach my $i (0..19) {
 exit 0 unless $show_state_totals;
 
 foreach my $state (@state) {
-	my $dem = 100 * $demvotes{$state} / $runs / $votes{$state};
-	my $rep = 100- $dem;
+	my $dem = 100 * $totaldemvotes{$state} / $runs / $votes{$state};
+	my $rep = 100 - $dem;
 	my $sdem = $dem{$state};
 	my $srep = $rep{$state};
 	if ($dem == $rep) {
