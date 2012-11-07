@@ -1,0 +1,38 @@
+Total electoral votes: 538
+  run    10000: Dem 303 Rep 235
+  run    20000: Dem 303 Rep 235
+  run    30000: Dem 303 Rep 235
+  run    40000: Dem 308 Rep 230
+  run    50000: Dem 303 Rep 235
+  run    60000: Dem 301 Rep 237
+  run    70000: Dem 299 Rep 239
+  run    80000: Dem 328 Rep 210
+  run    90000: Dem 309 Rep 229
+  run   100000: Dem 310 Rep 228
+Results
+  Dems are  99.391% likely to win.
+  Reps are   0.573% likely to win.
+  A tie is   0.036% likely.
+Average electoral vote counts
+  312.926 Dem 225.074 Rep
+Top 20 likely scenarios...
+   1.  Dem 303 Rep 235  12.869%
+   2.  Dem 332 Rep 206  12.845%
+   3.  Dem 318 Rep 220   4.403%
+   4.  Dem 347 Rep 191   4.336%
+   5.  Dem 319 Rep 219   4.064%
+   6.  Dem 290 Rep 248   3.934%
+   7.  Dem 326 Rep 212   3.377%
+   8.  Dem 323 Rep 215   3.352%
+   9.  Dem 297 Rep 241   3.334%
+  10.  Dem 294 Rep 244   3.305%
+  11.  Dem 299 Rep 239   2.903%
+  12.  Dem 328 Rep 210   2.720%
+  13.  Dem 314 Rep 224   2.517%
+  14.  Dem 305 Rep 233   1.769%
+  15.  Dem 309 Rep 229   1.517%
+  16.  Dem 312 Rep 226   1.449%
+  17.  Dem 334 Rep 204   1.445%
+  18.  Dem 285 Rep 253   1.403%
+  19.  Dem 322 Rep 216   1.273%
+  20.  Dem 313 Rep 225   1.255%
