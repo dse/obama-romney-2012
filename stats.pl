@@ -6,6 +6,8 @@ use strict;
 # and we don't get to compute likely electoral vote totals.
 my $quick = 0;
 
+my $show_state_totals = 0;
+
 # number of simulations to run.
 my $runs = 100000;
 
@@ -71,20 +73,21 @@ sub simulate {
 	$demvotes = 0;		# total number of dem votes this simulation run
 	$repvotes = 0;		# "     "      "  rep "     "    "          "
 	foreach my $state (@state) {
+		my $votes = $votes{$state};
 		if (rand() < $dem{$state}) {
 			# this run only
-			$demvotes += $votes{$state};
+			$demvotes += $votes;
 
 			# over all simulation runs
-			$totaldemvotes += $votes{$state};
-			$demvotes{$state} += $votes{$state};
+			$totaldemvotes += $votes;
+			$demvotes{$state} += $votes;
 		} else {
 			# this run only
-			$repvotes += $votes{$state};
+			$repvotes += $votes;
 
 			# over all simulation runs
-			$totalrepvotes += $votes{$state};
-			$repvotes{$state} += $votes{$state};
+			$totalrepvotes += $votes;
+			$repvotes{$state} += $votes;
 		}
 		if ($quick) {
 			# shortcut this simulation run maybe
@@ -119,30 +122,31 @@ for (my $run = 1; $run <= $runs; $run += 1) {
 }
 
 # Show simulation results.
-printf STDERR ("Done!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
 print ("Results\n");
 printf ("  Dems are %7.3f%% likely to win.\n", 100 * $demwins / $runs);
 printf ("  Reps are %7.3f%% likely to win.\n", 100 * $repwins / $runs);
 printf ("  A tie is %7.3f%% likely.\n",        100 * $ties / $runs);
 
-print ("Average electoral vote counts\n");
-printf ("  %6.2 Dem %6.2 Rep\n",
-	$totaldemvotes / $runs, $totalrepvotes / $runs);
-
 exit 0 if $quick;
+
+print ("Average electoral vote counts\n");
+printf ("  %3d Dem %3d Rep\n",
+	$totaldemvotes / $runs, $totalrepvotes / $runs);
 
 # sort (number of dem electoral votes) scenarios from most to least
 # likely
 my @likelydemtotals = sort { $votecountdist[$b] <=> $votecountdist[$a] }
 	(0 .. $totalvotes);
 
-print STDERR ("Top 20 likely scenarios...\n");
+print ("Top 20 likely scenarios...\n");
 foreach my $i (0..19) {
 	my $demtotal = $likelydemtotals[$i];
-	printf("  %.2f.  Dem %3d Rep %3d %7.3f%%\n",
+	printf("  %2d.  Dem %3d Rep %3d %7.3f%%\n",
 	       $i + 1, $demtotal, $totalvotes - $demtotal,
 	       100 * $votecountdist[$demtotal] / $runs);
 }
+
+exit 0 unless $show_state_totals;
 
 foreach my $state (@state) {
 	my $dem = 100 * $demvotes{$state} / $runs / $votes{$state};
