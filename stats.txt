@@ -1,52 +1,52 @@
-#st	#elect	#status	#dem	#rep
-AL	9		0	1	Rep
-AK	3		0.001	0.999	Rep
-AZ	11		0.02	0.98	Rep
-AR	6		0	1	Rep
-CA	55		1.000	0.000	Dem
+#st	#elect	#status	#dem	#rep	#comment
+AL	9	.	0	1	Rep
+AK	3	.	0.001	0.999	Rep
+AZ	11	.	0.02	0.98	Rep
+AR	6	.	0	1	Rep
+CA	55	.	1.000	0.000	Dem
 CO	9	Swing	0.797	0.203	Dem?
-CT	7		1	0	Dem
-DE	3		0.999	0.001	Dem
-DC	3		1	0	Dem
+CT	7	.	1	0	Dem
+DE	3	.	0.999	0.001	Dem
+DC	3	.	1	0	Dem
 FL	29	Swing	0.503	0.497	Dem?
-GA	16		0.002	0.998	Rep
-HI	4		1	0	Dem
-ID	4		0	1	Rep
-IL	20		1	0	Dem
-IN	11		0.004	0.996	Rep
+GA	16	.	0.002	0.998	Rep
+HI	4	.	1	0	Dem
+ID	4	.	0	1	Rep
+IL	20	.	1	0	Dem
+IN	11	.	0.004	0.996	Rep
 IA	6	Swing	0.843	0.157	Dem?
-KS	6		0.001	0.999	Rep
-KY	8		0	1	Rep
-LA	8		0	1	Rep
-ME	4		0.999	0.001	Dem
-MD	10		1	0	Dem
-MA	11		1	0	Dem
-MI	16		0.993	0.007	Dem
-MN	10		0.997	0.003	Dem
-MS	6		0	1	Rep
-MO	10		0.004	0.996	Rep
-MT	3		0.021	0.979	Rep
-NE	5		0.000	1.000	Rep
+KS	6	.	0.001	0.999	Rep
+KY	8	.	0	1	Rep
+LA	8	.	0	1	Rep
+ME	4	.	0.999	0.001	Dem
+MD	10	.	1	0	Dem
+MA	11	.	1	0	Dem
+MI	16	.	0.993	0.007	Dem
+MN	10	.	0.997	0.003	Dem
+MS	6	.	0	1	Rep
+MO	10	.	0.004	0.996	Rep
+MT	3	.	0.021	0.979	Rep
+NE	5	.	0.000	1.000	Rep
 NV	6	Swing	0.934	0.066	Dem
 NH	4	Swing	0.846	0.154	Dem
-NJ	14		1	0	Dem
-NM	5		0.994	0.006	Dem
-NY	29		1	0	Dem
+NJ	14	.	1	0	Dem
+NM	5	.	0.994	0.006	Dem
+NY	29	.	1	0	Dem
 NC	15	Swing	0.256	0.744	Rep?
-ND	3		0	1	Rep
+ND	3	.	0	1	Rep
 OH	18	Swing	0.906	0.094	Dem?
-OK	7		0	1	Rep
-OR	7		0.995	0.005	Dem
-PA	20		0.986	0.014	Dem
-RI	4		1	0	Dem
-SC	9		0.005	0.995	Rep
-SD	3		0.001	0.999	Rep
-TN	11		0	1	R
-TX	38		0	1	R
-UT	6		0	1	R
-VT	3		1	0	D
-VA	13	Swing	0.794	0.206	D?
-WA	12		1.000	0.000	D
-WV	5		0.001	0.999	R
-WI	10	Swing	0.967	0.033	D
-WY	3		0	1	R
+OK	7	.	0	1	Rep
+OR	7	.	0.995	0.005	Dem
+PA	20	.	0.986	0.014	Dem
+RI	4	.	1	0	Dem
+SC	9	.	0.005	0.995	Rep
+SD	3	.	0.001	0.999	Rep
+TN	11	.	0	1	Rep
+TX	38	.	0	1	Rep
+UT	6	.	0	1	Rep
+VT	3	.	1	0	Dem
+VA	13	Swing	0.794	0.206	Dem?
+WA	12	.	1.000	0.000	Dem
+WV	5	.	0.001	0.999	Rep
+WI	10	Swing	0.967	0.033	Dem
+WY	3	.	0	1	Rep
